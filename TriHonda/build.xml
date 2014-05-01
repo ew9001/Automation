@@ -5,14 +5,14 @@
               directory with the processing instruction <?eclipse.ant.import?>
               as the first entry and export the buildfile again. --><project basedir="." default="build" name="TriHonda">
     <property environment="env"/>
-    <property name="ECLIPSE_HOME" value="../../Screen shots/oralb/eclipse"/>
+    <property name="ECLIPSE_HOME" value="../../../usr/lib64/eclipse"/>
     <property name="junit.output.dir" value="junit"/>
     <property name="debuglevel" value="source,lines,vars"/>
     <property name="target" value="1.6"/>
     <property name="source" value="1.6"/>
     <path id="JUnit 4.libraryclasspath">
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.junit_4.10.0.v4_10_0_v20120426-0900/junit.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.hamcrest.core_1.1.0.v20090501071000.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/dropins/jdt/plugins/org.junit_4.8.1.v4_8_1_v20100427-1100/junit.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/dropins/jdt/plugins/org.hamcrest.core_1.1.0.v20090501071000.jar"/>
     </path>
     <path id="TriHonda.classpath">
         <pathelement location="bin"/>
@@ -35,12 +35,17 @@
         <pathelement location="src/library/commons-io-2.4-tests.jar"/>
         <pathelement location="src/library/commons-io-2.4.jar"/>
         <pathelement location="src/library/selenium-server-standalone-2.37.0.jar"/>
+        <pathelement location="src/library/allpages.xls"/>
+        <pathelement location="src/library/externaldealers.xls"/>
+        <pathelement location="src/library/info.xls"/>
+        <pathelement location="src/library/info3.xls"/>
         <path refid="JUnit 4.libraryclasspath"/>
     </path>
     <target name="init">
         <mkdir dir="bin"/>
         <copy includeemptydirs="false" todir="bin">
             <fileset dir="src">
+                <exclude name="**/*.launch"/>
                 <exclude name="**/*.java"/>
             </fileset>
         </copy>
@@ -53,7 +58,7 @@
     <target name="build-subprojects"/>
     <target depends="init" name="build-project">
         <echo message="${ant.project.name}: ${ant.file}"/>
-        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}">
             <src path="src"/>
             <classpath refid="TriHonda.classpath"/>
         </javac>
@@ -72,7 +77,7 @@
         <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
         <antcall target="build"/>
     </target>
-    <target name="RequestQuote1">
+    <target name="RequestQuote">
         <mkdir dir="${junit.output.dir}"/>
         <junit fork="yes" printsummary="withOutAndErr">
             <formatter type="xml"/>
@@ -80,19 +85,19 @@
             <classpath refid="TriHonda.classpath"/>
         </junit>
     </target>
-    <target name="RequestQuote">
+    <target name="DealerInput">
         <mkdir dir="${junit.output.dir}"/>
         <junit fork="yes" printsummary="withOutAndErr">
             <formatter type="xml"/>
-            <test name="RequestQuote" todir="${junit.output.dir}"/>
+            <test name="library.DealerInput" todir="${junit.output.dir}"/>
             <classpath refid="TriHonda.classpath"/>
         </junit>
     </target>
-    <target name="RequestQuoteTablet">
+    <target name="ExternalDealers">
         <mkdir dir="${junit.output.dir}"/>
         <junit fork="yes" printsummary="withOutAndErr">
             <formatter type="xml"/>
-            <test name="library.RequestQuoteTablet" todir="${junit.output.dir}"/>
+            <test name="library.ExternalDealers" todir="${junit.output.dir}"/>
             <classpath refid="TriHonda.classpath"/>
         </junit>
     </target>
