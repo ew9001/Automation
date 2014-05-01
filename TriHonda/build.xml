@@ -93,7 +93,39 @@
             <classpath refid="TriHonda.classpath"/>
         </junit>
     </target>
-    <target name="ExternalDealers">
+    <target name="MapNav">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="library.ExternalDealers" todir="${junit.output.dir}"/>
+            <classpath refid="TriHonda.classpath"/>
+        </junit>
+    </target>
+     <target name="PageLoads">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="library.ExternalDealers" todir="${junit.output.dir}"/>
+            <classpath refid="TriHonda.classpath"/>
+        </junit>
+    </target>
+     <target name="PutMeIn">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="library.ExternalDealers" todir="${junit.output.dir}"/>
+            <classpath refid="TriHonda.classpath"/>
+        </junit>
+    </target>
+     <target name="ResponsivePageLoads">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="library.ExternalDealers" todir="${junit.output.dir}"/>
+            <classpath refid="TriHonda.classpath"/>
+        </junit>
+    </target>
+     <target name="ExternalDealers">
         <mkdir dir="${junit.output.dir}"/>
         <junit fork="yes" printsummary="withOutAndErr">
             <formatter type="xml"/>
