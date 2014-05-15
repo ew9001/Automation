@@ -100,7 +100,7 @@ try {
             }
 
     File scrFile1 = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-FileUtils.copyFile(scrFile1, new File("Y://Screenshots/ExternalMapPageLinks/" + timeStamp + "/" + row + "-" + "external-dealer.png"));
+FileUtils.copyFile(scrFile1, new File("ExternalMapPageLinks/" + timeStamp + "/" + row + "-" + "external-dealer.png"));
 //((Rotatable) driver).rotate(ScreenOrientation.PORTRAIT);
 
 //Thread.sleep(3000);
